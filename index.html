@@ -1,5 +1,6 @@
 <textarea id="txt" cols="100" rows="10">{"result":true, "count":42, "name":"田中"}</textarea>
 <button onclick="decode()">json_decode</button>
+<textarea id="txt2" cols="100" rows="10"></textarea>
 <script>
 function decode() {
   const json = document.getElementById("txt").value;
@@ -14,5 +15,11 @@ function decode() {
 
   console.log(obj.name);
 // expected output: 田中
+
+  let txt = '';
+  for (const i in obj) {
+    txt += i + ': ' + obj[i] + '\n';
+  }
+  document.getElementById('txt2').value = txt;
 }
 </script>
